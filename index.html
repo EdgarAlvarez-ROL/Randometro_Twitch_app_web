@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chat App</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- <h1>Chat App</h1> -->
+    <div id="chat"></div>
+
+    <div class="barra">
+      <!-- <div id="1" class="casilla rojo">LO PEOR</div> -->
+      <div id="1" class="casilla rojo">HORRIBLE</div>
+      <div id="2" class="casilla rojo">MALA</div>
+      <div id="3" class="casilla rojo">NO ME GUSTO</div>
+      <div id="4" class="casilla verde">PIOLA</div>
+      <div id="5" class="casilla verde">WENA</div>
+      <div id="6" class="casilla verde">GOD</div>
+      <div id="7" class="casilla amarillo">GOTY</div>
+    </div>
+
+    <div id="twitch" class="triangulo">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="36"
+        height="36"
+        viewBox="0 0 24 24"
+        fill="#7754d9"
+        class="icon icon-tabler icons-tabler-filled icon-tabler-triangle"
+      >
+        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+        <path
+          d="M12 1.67a2.914 2.914 0 0 0 -2.492 1.403l-8.11 13.537a2.914 2.914 0 0 0 2.484 4.385h16.225a2.914 2.914 0 0 0 2.503 -4.371l-8.116 -13.546a2.917 2.917 0 0 0 -2.494 -1.408z"
+        />
+      </svg>
+      <br>
+      <span>CHAT</span>
+    </div>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <button id="start" class="boton-azul">INICIAR VOTACION</button>
+
+    <script src="dist/bundle.js"></script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const casillas = document.querySelectorAll(".casilla");
+        let hoverTimeout;
+
+        casillas.forEach((casilla) => {
+          casilla.addEventListener("click", function () {
+            clearTimeout(hoverTimeout); // Limpiar cualquier retraso pendiente al hacer clic
+            // Remover la clase 'active' de todas las casillas excepto la clicada
+            casillas.forEach((casilla) => {
+              if (casilla !== this) {
+                casilla.classList.remove("active");
+              }
+            });
+            // Agregar la clase 'active' a la casilla clicada
+            this.classList.add("active");
+          });
+
+          casilla.addEventListener("mouseenter", function () {
+            clearTimeout(hoverTimeout); // Limpiar cualquier retraso pendiente al pasar el cursor
+            // Esperar 2 segundos antes de desactivar la clase 'active' de las casillas
+            hoverTimeout = setTimeout(() => {
+              casillas.forEach((casilla) => {
+                if (casilla !== this) {
+                  casilla.classList.remove("active");
+                }
+              });
+              // Agregar la clase 'active' a la casilla actual
+              // this.classList.add('active');
+            }, 8000);
+          });
+
+          casilla.addEventListener("mouseleave", function () {
+            clearTimeout(hoverTimeout); // Limpiar cualquier retraso pendiente al salir del cursor
+          });
+        });
+      });
+
+      // Alternar clase para cambiar el color del botón
+      const boton = document.getElementById('start');
+      boton.addEventListener('click', function () {
+          if (this.textContent === 'DETENER VOTACION') {
+              this.textContent = 'INICIAR VOTACION';
+          } else {
+              this.textContent = 'DETENER VOTACION';
+          }
+          this.classList.toggle('boton-celeste');
+      });
+
+    </script>
+  </body>
+</html>

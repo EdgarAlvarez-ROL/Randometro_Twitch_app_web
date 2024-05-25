@@ -1,0 +1,163 @@
+body {
+    background-color: #333;
+    margin: 0;
+    font-family: Arial, sans-serif; /* Establecer la fuente del sistema */
+}
+
+.barra {
+    display: flex;
+    width: 100%;
+}
+
+.casilla {
+    flex-grow: 1;
+    height: 50px;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: filter 0.3s, color 0.3s; /* Agregar transición para el cambio de color */
+    margin: 0;
+    font-size: 20px; /* Ajustar el tamaño de la fuente */
+    font-weight: bold; /* Hacer la fuente más gruesa */
+}
+
+.amarillo:hover,
+.amarillo.active {
+    background-color: rgb(131, 102, 8); /* Cambiar el color de fondo a azul */
+    color: white; /* Cambiar el color del texto a blanco */
+}
+
+.rojo:hover,
+.rojo.active {
+    background-color: rgb(131, 8, 8); /* Cambiar el color de fondo a azul */
+    color: white; /* Cambiar el color del texto a blanco */
+}
+
+.verde:hover,
+.verde.active {
+    background-color: rgb(8, 105, 21); /* Cambiar el color de fondo a azul */
+    color: white; /* Cambiar el color del texto a blanco */
+}
+
+
+/* .casilla:hover {
+    color: white;
+    filter: brightness(0.1); /* Oscurecer la casilla al pasar el mouse 
+
+*/
+
+.rojo {
+    background-color: rgb(231, 37, 37);
+    color: black;
+}
+
+.verde {
+    background-color: rgb(13, 206, 13);
+    color: black;
+}
+
+.amarillo {
+    background-color: rgb(243, 243, 28);
+    color: black;
+}
+    
+
+body {
+    background-color: #333;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.barra {
+    display: flex;
+    width: 100%;
+    position: relative;
+}
+
+.casilla {
+    flex-grow: 1;
+    height: 50px;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: filter 0.3s, color 0.3s;
+    margin: 0;
+    font-size: 20px;
+    font-weight: bold;
+    position: relative;
+}
+
+.casilla:hover {
+    filter: brightness(0.8);
+    color: white;
+}
+
+
+/* .casilla:hover,
+.casilla.active {
+    filter: brightness(0.8);
+    color: white;
+} */
+
+.casilla:hover::after,
+.casilla.active::after {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='36' viewBox='0 0 24 24' class='icon icon-tabler icons-tabler-filled icon-tabler-triangle'%3E%3Cpath stroke='none' d='M0 0h24v24H0z' fill='none'/%3E%3Cpath d='M12 1.67a2.914 2.914 0 0 0 -2.492 1.403l-8.11 13.537a2.914 2.914 0 0 0 2.484 4.385h16.225a2.914 2.914 0 0 0 2.503 -4.371l-8.116 -13.546a2.917 2.917 0 0 0 -2.494 -1.408z' /%3E%3C/svg%3E");
+    content: ' ';
+    /* fill: blueviolet; */
+    position: absolute;
+    bottom: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 36px;
+    height: 36px;
+    fill: '%23800080';
+    
+}
+
+/* BUTTON */
+.boton-azul {
+    background-color: rgb(14, 117, 40);
+    color: white;
+    font-weight: 800;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s cubic-bezier(0.39, 0.575, 0.565, 1), color 0.3s cubic-bezier(0.39, 0.575, 0.565, 1);
+    margin-left: auto;
+    margin-right: auto;
+    display: block; /* Esto es importante para que los márgenes automáticos funcionen correctamente */
+}
+
+.boton-celeste {
+    background-color: rgb(158, 24, 15);
+    color: white;
+}
+
+
+/* CHAT */
+.barra .triangulo {
+    display: flex;
+    margin-top: 10px; /* Ajusta este valor según sea necesario */
+    position: relative; /* Añade posición relativa para posicionar el texto */
+}
+
+.triangulo svg {
+    width: 36px;
+    height: 36px;
+}
+
+.triangulo span {
+    color: rgb(156, 50, 218);
+    font-weight: 700;
+    font-size: 24px;
+    /* margin-top: 5px; Ajusta este valor según sea necesario */
+    position: absolute;
+    transform: translate(-20%, -20%); /* Centra el texto */
+
+}
